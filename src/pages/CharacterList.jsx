@@ -1,9 +1,9 @@
-// src/pages/CharacterList.jsx
 import React, { useEffect, useState } from 'react';
-import '../style/CharacterList.css'; // Import the CSS file
+import { useFavorites } from '../Context/FavoriteContext'; import '../style/CharacterList.css'; 
 
 const CharacterList = () => {
   const [characters, setCharacters] = useState([]);
+  const { addFavorite } = useFavorites(); // Obtiene la función para agregar favoritos
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,11 +24,11 @@ const CharacterList = () => {
       <h1>Characters</h1>
       <p>Meet the iconic characters of Star Wars.</p>
       <ul>
-        {characters.map((character) => (
+        {characters.map((character, index) => (
           <li key={character.name}>
-            {/* Placeholder image, since SWAPI doesn't provide character images */}
+            {/* Placeholder image */}
             <img
-              src={`https://starwars-visualguide.com/assets/img/characters/${character.url.match(/\/([0-9]*)\/$/)[1]}.jpg`}
+              src={`https://starwars-visualguide.com/assets/img/characters/${index + 1}.jpg`}
               alt={character.name}
               className="character-image"
             />
@@ -38,7 +38,9 @@ const CharacterList = () => {
               <p>Mass: {character.mass} kg</p>
               <p>Birth Year: {character.birth_year}</p>
             </div>
-            <button className="btn">Add to Favorites</button>
+            <button className="btn" onClick={() => addFavorite(character)}>
+              Add to Favorites
+            </button>
           </li>
         ))}
       </ul>

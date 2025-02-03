@@ -1,9 +1,10 @@
-// src/pages/PlanetList.jsx
 import React, { useEffect, useState } from 'react';
-import '../style/PlanetList.css'; // Import the CSS file
+import { useFavorites } from '../Context/FavoriteContext'
+import '../style/PlanetList.css';
 
 const PlanetList = () => {
   const [planets, setPlanets] = useState([]);
+  const { addFavorite } = useFavorites();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +39,7 @@ const PlanetList = () => {
               <p>Population: {planet.population}</p>
               <p>Terrain: {planet.terrain}</p>
             </div>
-            <button className="btn">Add to Favorites</button>
+            <button className="btn" onClick={() => addFavorite(planet)}>add to favorites</button>
           </li>
         ))}
       </ul>

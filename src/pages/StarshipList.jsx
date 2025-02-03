@@ -1,9 +1,10 @@
-// src/pages/StarshipList.jsx
 import React, { useEffect, useState } from 'react';
-import '../style/StarshipList.css'; // Import the CSS file
+import { useFavorites } from '../Context/FavoriteContext'
+import '../style/StarshipList.css';
 
 const StarshipList = () => {
   const [starships, setStarships] = useState([]);
+  const { addFavorite } = useFavorites();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,7 +27,6 @@ const StarshipList = () => {
       <ul>
         {starships.map((starship) => (
           <li key={starship.name}>
-            {/* Placeholder image, as SWAPI doesn't provide starship images */}
             <img
               src={`https://starwars-visualguide.com/assets/img/starships/${starship.url.match(/\/([0-9]*)\/$/)[1]}.jpg`}
               alt={starship.name}
@@ -38,7 +38,7 @@ const StarshipList = () => {
               <p>Manufacturer: {starship.manufacturer}</p>
               <p>Cost in Credits: {starship.cost_in_credits}</p>
             </div>
-            <button className="btn">Add to Favorites</button>
+            <button className="btn" onClick={() => addFavorite(starship)}>Add to Favorites</button>
           </li>
         ))}
       </ul>

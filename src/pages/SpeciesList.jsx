@@ -1,9 +1,10 @@
-// src/pages/SpeciesList.jsx
 import React, { useEffect, useState } from 'react';
-import '../style/SpeciesList.css'; // Import the CSS file
+import { useFavorites } from '../Context/FavoriteContext'
+import '../style/SpeciesList.css';
 
 const SpeciesList = () => {
   const [species, setSpecies] = useState([]);
+  const { addFavorite } = useFavorites();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +39,7 @@ const SpeciesList = () => {
               <p>Language: {specie.language}</p>
               <p>Average Lifespan: {specie.average_lifespan} years</p>
             </div>
-            <button className="btn">Add to Favorites</button>
+            <button className="btn" onClick={() => addFavorite(specie)}>Add to Favorites</button>
           </li>
         ))}
       </ul>

@@ -13,10 +13,13 @@ const App = () => {
       <Router>
         <Navbar />
         <Routes>
+          {/* Add a default route (optional) */}
+          <Route path="/" element={<CharacterList />} />
           <Route path="/characters" element={<CharacterList />} />
           <Route path="/planets" element={<PlanetList />} />
           <Route path="/species" element={<SpeciesList />} />
           <Route path="/starships" element={<StarshipList />} />
+          <Route path="*" element={<h1>404 - Page Not Found</h1>} />
         </Routes>
       </Router>
     </FavoritesProvider>

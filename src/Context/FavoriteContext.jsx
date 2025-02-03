@@ -1,7 +1,13 @@
-import React, { createContext, useState } from 'react';
+// src/Context/FavoriteContext.jsx
+import React, { createContext, useState, useContext } from 'react';
 
-export const FavoritesContext = createContext();
+// Create the context
+const FavoritesContext = createContext();
 
+// Custom hook to consume the context
+export const useFavorites = () => useContext(FavoritesContext);
+
+// Context provider component
 export const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
 
@@ -19,3 +25,6 @@ export const FavoritesProvider = ({ children }) => {
     </FavoritesContext.Provider>
   );
 };
+
+// Export the context itself (if needed)
+export default FavoritesContext;
