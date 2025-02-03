@@ -1,0 +1,45 @@
+/* src/style/Navbar.css */
+
+.navbar {
+  background-color: #000000; 
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; /* Added to allow absolute positioning of the decorative image */
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar img {
+  width: 300px; /* Increased width for a bigger logo */
+}
+
+.decorative-image {
+  position: absolute; /* Position the decorative image in the center */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px; /* Increased size for the decorative image */
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 50px;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.dropdown-menu.open {
+  display: block;
+}

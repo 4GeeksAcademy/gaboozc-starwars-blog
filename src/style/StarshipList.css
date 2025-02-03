@@ -1,0 +1,66 @@
+/* src/style/StarshipList.css */
+
+.starship-list {
+  text-align: center;
+  padding: 50px;
+  background-color: #000000; /* Set background color to black */
+}
+
+.starship-list h1 {
+  font-size: 2.5em;
+  color: #ff9800; /* Title color */
+  margin-bottom: 20px;
+}
+
+.starship-list p {
+  font-size: 1.2em;
+  color: #fff; /* Paragraph color */
+  margin-bottom: 30px;
+}
+
+.starship-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.starship-list li {
+  margin: 20px 0; /* Increased margin for better spacing */
+  padding: 10px;
+  background-color: #1a1a2e;
+  color: white;
+  border-radius: 10px; /* Increased border radius */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.starship-image {
+  width: 200px; /* Increased image width */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 20px; /* Space between image and info */
+  border-radius: 10px; /* Optional: Add border radius to images */
+}
+
+.starship-info {
+  flex-grow: 1; /* Allow info to take up remaining space */
+  text-align: center; /* Center text horizontally */
+}
+
+.starship-info h3, .starship-info p {
+  color: #ffffff; /* Set text color to white */
+  margin: 10px 0; /* Margin for better spacing */
+}
+
+.starship-list li button {
+  padding: 10px 20px;
+  background-color: #ff9800; /* Button background color */
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 5px;
+}
+
+.starship-list li button:hover {
+  background-color: #e68900; /* Button hover color */
+}
