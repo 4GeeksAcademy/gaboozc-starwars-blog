@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useFavorites } from '../Context/FavoriteContext'
+import { Link } from 'react-router-dom';
+import { useFavorites } from '../Context/FavoriteContext';
 import '../style/SpeciesList.css';
 
 const SpeciesList = () => {
@@ -25,23 +26,31 @@ const SpeciesList = () => {
       <h1>Species</h1>
       <p>Discover the diverse species of Star Wars.</p>
       <ul>
-        {species.map((specie) => (
-          <li key={specie.name}>
-            {/* Placeholder image, as SWAPI doesn't provide species images */}
-            <img
-              src={`https://starwars-visualguide.com/assets/img/species/${specie.url.match(/\/([0-9]*)\/$/)[1]}.jpg`}
-              alt={specie.name}
-              className="species-image"
-            />
-            <div className="species-info">
-              <h3>{specie.name}</h3>
-              <p>Classification: {specie.classification}</p>
-              <p>Language: {specie.language}</p>
-              <p>Average Lifespan: {specie.average_lifespan} years</p>
-            </div>
-            <button className="btn" onClick={() => addFavorite(specie)}>Add to Favorites</button>
-          </li>
-        ))}
+        {species.map((specie) => {
+          const id = specie.url.match(/\/([0-9]*)\/$/)[1]; 
+
+          return (
+            <li key={specie.name}>
+              <img
+                src={`https://starwars-visualguide.com/assets/img/species/${id}.jpg`}
+                alt={specie.name}
+                className="species-image"
+              />
+
+              <div className="species-info">
+                <h3>
+                  <Link to={`/species/${id}`}>{specie.name}</Link>
+                </h3>
+                <p>Classification: {specie.classification}</p>
+                <p>Language: {specie.language}</p>
+                <p>Average Lifespan: {specie.average_lifespan} years</p>
+              </div>
+              <button className="btn" onClick={() => addFavorite(specie)}>
+                Add to Favorites
+              </button>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

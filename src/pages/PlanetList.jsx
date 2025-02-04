@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useFavorites } from '../Context/FavoriteContext'
+import { Link } from 'react-router-dom';
+import { useFavorites } from '../Context/FavoriteContext';
 import '../style/PlanetList.css';
 
 const PlanetList = () => {
@@ -25,23 +26,31 @@ const PlanetList = () => {
       <h1>Planets</h1>
       <p>Explore the various planets in the galaxy.</p>
       <ul>
-        {planets.map((planet) => (
-          <li key={planet.name}>
-            {/* Placeholder image, as SWAPI doesn't provide planet images */}
-            <img
-              src={`https://starwars-visualguide.com/assets/img/planets/${planet.url.match(/\/([0-9]*)\/$/)[1]}.jpg`}
-              alt={planet.name}
-              className="planet-image"
-            />
-            <div className="planet-info">
-              <h3>{planet.name}</h3>
-              <p>Climate: {planet.climate}</p>
-              <p>Population: {planet.population}</p>
-              <p>Terrain: {planet.terrain}</p>
-            </div>
-            <button className="btn" onClick={() => addFavorite(planet)}>add to favorites</button>
-          </li>
-        ))}
+        {planets.map((planet) => {
+          const id = planet.url.match(/\/([0-9]*)\/$/)[1]; 
+
+          return (
+            <li key={planet.name}>
+              <img
+                src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
+                alt={planet.name}
+                className="planet-image"
+              />
+
+              <div className="planet-info">
+                <h3>
+                  <Link to={`/planets/${id}`}>{planet.name}</Link>
+                </h3>
+                <p>Climate: {planet.climate}</p>
+                <p>Population: {planet.population}</p>
+                <p>Terrain: {planet.terrain}</p>
+              </div>
+              <button className="btn" onClick={() => addFavorite(planet)}>
+                Add to Favorites
+              </button>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

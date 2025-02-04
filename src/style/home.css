@@ -1,55 +1,50 @@
-/* src/style/home.css */
-
 .home {
   text-align: center;
   padding: 50px;
-  background-color: #000000; /* Set background color to black */
-  margin-top: 0; /* Remove top margin */
-  padding-top: 10px; /* Adjust space at the top to reduce gap */
+  background-color: #000000; 
+  margin-top: 0; 
+  padding-top: 10px; 
 }
 
 .home h1 {
   font-size: 3em;
-  color: #ff9800; /* Title color */
-  margin-bottom: 5px; /* Reduce space below the title */
-  margin-top: 0; /* Remove top margin */
+  color: #ff9800; 
+  margin-bottom: 5px; 
+  margin-top: 0; 
 }
 
 .home h2 {
   font-size: 1.5em;
-  color: #ff9800; /* Slogan color to match the "STAR WARS" text */
-  margin-top: -5px; /* Adjust space below the slogan */
-  margin-bottom: 20px; /* Space below the slogan */
+  color: #ff9800; 
+  margin-top: -5px; 
+  margin-bottom: 20px; 
 }
 
 .section {
-  margin-bottom: 20px; /* Reduce space between sections */
+  margin-bottom: 20px; 
   padding: 20px;
-  background-color: #1a1a2e; /* Section background color */
-  border-radius: 10px;
-  transition: transform 0.3s, background-color 0.3s; /* Add transition for hover effect */
+  background-color: #1a1a2e; 
+  transition: transform 0.3s, background-color 0.3s; 
 }
 
 .section:hover {
-  transform: scale(1.05); /* Slightly enlarge on hover */
-  background-color: #2a2a3e; /* Darken background on hover */
-}
+  transform: scale(1.05); 
+  background-color: #2a2a3e; 
 
 .section h2 {
   font-size: 2em;
-  color: #ff9800; /* Section title color */
-  margin-bottom: 20px;
+  color: #ff9800; 
 }
 
 .section p {
   font-size: 1.2em;
-  color: #ffffff; /* Section description color */
+  color: #ffffff; 
   margin-bottom: 20px;
 }
 
 .btn {
   padding: 10px 20px;
-  background-color: #ff9800; /* Button background color */
+  background-color: #ff9800; 
   color: white;
   border: none;
   cursor: pointer;
@@ -59,6 +54,7 @@
 }
 
 .btn:hover {
-  background-color: #e68900; /* Button hover color */
+  background-color: #e68900; 
 }
 
+}

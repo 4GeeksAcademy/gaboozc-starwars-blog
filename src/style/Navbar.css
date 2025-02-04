@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative; /* Added to allow absolute positioning of the decorative image */
+  position: relative; 
 }
 
 .container {
@@ -18,14 +18,14 @@
 }
 
 .navbar img {
-  width: 300px; /* Increased width for a bigger logo */
+  width: 300px; 
 }
 
 .decorative-image {
-  position: absolute; /* Position the decorative image in the center */
+  position: absolute; 
   left: 50%;
   transform: translateX(-50%);
-  width: 150px; /* Increased size for the decorative image */
+  width: 150px; 
 }
 
 .dropdown-menu {
